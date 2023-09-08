@@ -1,13 +1,12 @@
 <?php
-include "./functions.php";
+
 session_start();
 
-if ($password != null) {
-  $_SESSION['password'] = $password;
-
-  header('Location: ./password.php');
+if(!isset($_SESSION['password'])) {
+  header("Location: ./index.php");
   die;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +15,7 @@ if ($password != null) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Password Generator</title>
+  <title>Password</title>
 
   <!-- THIRD PARTY LIBRARIES -->
   <!-- BOOTSTRAP CDN -->
@@ -32,18 +31,10 @@ if ($password != null) {
     <div class="row justify-content-center">
       <div class="col-5">
 
-        <form action="">
-          <div class="d-flex flex-column">
-            <div class="d-flex">
-              <div>
-                <label for="customRange1" class="form-label pe-3">Lunghezza</label>
-              </div class="mb-3">
-              <input type="range" class="form-range" value="<?php echo $passwordLength ?? "10" ?>" min="1" max="20" step="1" id="passwordLength" name="passwordLength" oninput="this.nextElementSibling.value = this.value">
-              <output class="ps-3"><?php echo $passwordLength ?? "10" ?></output>
-            </div>
-            <button type="submit" class="btn btn-success">Genera</button>
-          </div>
-        </form>
+        <div class="text-center m-3">
+          <h1><?php echo $_SESSION['password'] ?></h1>
+          <a href="./index.php" class="link-primary">Genera un'altra password</a>
+        </div>
 
       </div>
     </div>
