@@ -6,7 +6,6 @@ if(!isset($_SESSION['password'])) {
   header("Location: ./index.php");
   die;
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -26,12 +25,12 @@ if(!isset($_SESSION['password'])) {
   <link rel="icon" type="image/x-icon" href="https://boolean.careers/favicon/favicon.ico">
 </head>
 
-<body>
-  <div class="container mt-5">
-    <div class="row justify-content-center">
+<body style="height: 100vh; background-color: #002226; color: white">
+  <div class="container h-100 d-flex justify-content-center align-items-center">
+    <div class="row w-100 justify-content-center">
       <div class="col-5">
 
-        <div class="text-center m-3">
+        <div class="text-center border border-success rounded p-4">
           <h1><?php echo $_SESSION['password'] ?></h1>
           <a href="./index.php" class="link-primary">Genera un'altra password</a>
         </div>

@@ -27,21 +27,42 @@ if ($password != null) {
   <link rel="icon" type="image/x-icon" href="https://boolean.careers/favicon/favicon.ico">
 </head>
 
-<body>
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-5">
+<body style="height: 100vh; background-color: #002226; color: white">
+  <div class="container h-100 d-flex justify-content-center align-items-center">
+    <div class="row w-100 justify-content-center">
+      <div class="col-6">
 
-        <form action="">
+        <form class="border border-success rounded p-4">
           <div class="d-flex flex-column">
             <div class="d-flex">
-              <div>
+              <div class="mb-2">
                 <label for="customRange1" class="form-label pe-3">Lunghezza</label>
-              </div class="mb-3">
-              <input type="range" class="form-range" value="<?php echo $passwordLength ?? "10" ?>" min="1" max="20" step="1" id="passwordLength" name="passwordLength" oninput="this.nextElementSibling.value = this.value">
+              </div>
+              <input type="range" class="form-range" value="<?php echo $passwordLength ?>" min="1" max="20" step="1" id="passwordLength" name="passwordLength" oninput="this.nextElementSibling.value = this.value">
               <output class="ps-3"><?php echo $passwordLength ?? "10" ?></output>
             </div>
-            <button type="submit" class="btn btn-success">Genera</button>
+            <div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="true" id="upperChar" name="upperChar" checked>
+                <label class="form-check-label" for="upperChar">
+                  Lettere Maiuscole
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="numbers" name="numbers" checked>
+                <label class="form-check-label" for="numbers">
+                  Numeri
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="symbols" name="symbols">
+                <label class="form-check-label" for="symbols">
+                  Simboli
+                </label>
+              </div>
+
+            </div>
+            <button type="submit" class="btn btn-success mt-3">Genera</button>
           </div>
         </form>
 
